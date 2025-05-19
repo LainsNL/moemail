@@ -68,7 +68,7 @@ export async function GET(
 
     if (!email) {
       return NextResponse.json(
-        { error: "无权限查看" },
+        { error: "无权限查看1" },
         { status: 403 }
       )
     }
