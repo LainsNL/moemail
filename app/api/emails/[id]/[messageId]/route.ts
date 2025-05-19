@@ -70,7 +70,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
 
     if (!email) {
       return NextResponse.json(
-        { error: "无权限查看" },
+        { error: "无权限查看2" },
         { status: 403 }
       )
     }
