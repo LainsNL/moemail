@@ -21,7 +21,16 @@ const ROLE_DESCRIPTIONS: Record<Role, string> = {
 
 const getDefaultRole = async (): Promise<Role> => {
   const defaultRole = await getRequestContext().env.SITE_CONFIG.get("DEFAULT_ROLE")
-  return defaultRole === ROLES.KNIGHT ? ROLES.KNIGHT : ROLES.CIVILIAN
+
+  if (
+    defaultRole === ROLES.DUKE ||
+    defaultRole === ROLES.KNIGHT ||
+    defaultRole === ROLES.CIVILIAN
+  ) {
+    return defaultRole as Role
+  }
+  
+  return ROLES.CIVILIAN
 }
 
 async function findOrCreateRole(db: Db, roleName: Role) {
